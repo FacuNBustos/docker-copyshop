@@ -22,7 +22,7 @@ services:
     hostname: api
     environment:
       HOST: 127.0.0.1
-      PORT : 5000
+      PORT : 3000
       JWT_PRIVATY_KEY : MIGHAgEAMBMGByqGSM49AgEGCCqGSM49AwEHBG0wawIBAQQgiyvo0X+VQ0yIrOaNnlrnUclopnvuuMfoc8HHly3505OhRANCAAQWUcdZ8uTSAsFuwtNy4KtsKqgeqYxg
       ADMIN_EMAIL : wasd_admin@admin.com
       ADMIN_PASSWORD : admin
@@ -31,18 +31,8 @@ services:
       DB_HOST : db_mysql
       DB_PORT : 3306
     command: 'yarn start'
-
-  reactapp:
-    build: ../wasd_copyshop-frontend
-    restart: on-failure
-    container_name: reactapp
-    working_dir: /reactapp
-    hostname: client
-    volumes:
-      - ../wasd_copyshop-frontend:/reactapp
-      - /reactapp/node_modules
     ports:
-      - "80:8080"
+      - '3000:3000'
 
 volumes:
   db:
